@@ -1,0 +1,199 @@
+@import "../../responsive.scss";
+
+.profilePage {
+    display: flex;
+    height: 100%;
+    background-color: #f8f9fa;
+    gap: 30px;
+    padding: 30px;
+
+    @include md {
+        flex-direction: column;
+        overflow: scroll;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .details {
+        flex: 3;
+        overflow-y: scroll;
+        padding-bottom: 50px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+        @include md {
+            flex: none;
+            height: max-content;
+        }
+
+        .wrapper {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            .title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee;
+
+                h1 {
+                    font-weight: 600;
+                    color: #2c3e50;
+                    font-size: 24px;
+                }
+
+                button {
+                    padding: 12px 24px;
+                    background-color: #face51;
+                    color: #2c3e50;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: darken(#face51, 5%);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                background: #f8f9fa;
+                padding: 25px;
+                border-radius: 8px;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    font-size: 16px;
+                    color: #2c3e50;
+
+                    b {
+                        color: #1a1a1a;
+                        font-weight: 600;
+                    }
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+
+                        p {
+                            color: #666;
+                            font-size: 14px;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                button {
+                    width: 120px;
+                    padding: 12px 24px;
+                    background-color: #e74c3c;
+                    color: white;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    margin-top: 10px;
+
+                    &:hover {
+                        background-color: darken(#e74c3c, 5%);
+                        transform: translateY(-2px);
+                    }
+                }
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid #face51;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+    }
+
+    .chatContainer {
+        flex: 2;
+        background-color: white;
+        height: 100%;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        overflow-y: auto;
+
+        @include md {
+            flex: none;
+            height: max-content;
+        }
+
+        .wrapper {
+            padding: 30px;
+            height: 100%;
+
+            .title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 20px;
+
+                h1 {
+                    font-weight: 600;
+                    color: #2c3e50;
+                    font-size: 24px;
+                }
+
+                button {
+                    padding: 12px 24px;
+                    background-color: #face51;
+                    color: #2c3e50;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: darken(#face51, 5%);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.error {
+    text-align: center;
+    padding: 20px;
+    color: #e74c3c;
+    font-size: 16px;
+    background: #fdf3f2;
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 1px solid #fadbd8;
+}

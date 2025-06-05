@@ -1,0 +1,309 @@
+.profileUpdatePage {
+  height: 100%;
+  display: flex;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  gap: 2rem;
+
+  .formContainer {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      h1 {
+        color: #2c3e50;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        label {
+          color: #4a5568;
+          font-weight: 500;
+          font-size: 0.95rem;
+        }
+
+        input {
+          padding: 0.8rem 1rem;
+          border-radius: 8px;
+          border: 1px solid #e2e8f0;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          background-color: #f8fafc;
+
+          &:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+            background-color: white;
+          }
+
+          &::placeholder {
+            color: #a0aec0;
+          }
+        }
+      }
+
+      button {
+        padding: 1rem;
+        border-radius: 8px;
+        border: none;
+        background-color: #4299e1;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 0.5rem;
+
+        &:hover {
+          background-color: #3182ce;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+
+      span {
+        color: #e53e3e;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .sideContainer {
+    flex: 2;
+    background-color: #f1f9ff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #fece51, #face51);
+    }
+
+    .avatar {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08),
+                  0 0 0 1px rgba(254, 206, 81, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+
+      &:hover {
+        transform: scale(1.03);
+        border-color: #fece51;
+        box-shadow: 0 12px 24px rgba(254, 206, 81, 0.15),
+                    0 0 0 2px rgba(254, 206, 81, 0.2);
+      }
+
+      &::after {
+        content: 'Change Photo';
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(254, 206, 81, 0.9);
+        color: #2c3e50;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        opacity: 0;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        bottom: -45px;
+      }
+    }
+
+    // Style for the upload widget button
+    :global(.cloudinary-button) {
+      background: linear-gradient(135deg, #fece51 0%, #face51 100%);
+      color: #2c3e50;
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      border: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(254, 206, 81, 0.2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 200px;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: auto !important; // Override Cloudinary's default width
+      height: auto !important; // Override Cloudinary's default height
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      // Add upload icon
+      &::after {
+        content: '↑';
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 6px 16px rgba(254, 206, 81, 0.3);
+        background: linear-gradient(135deg, #face51 0%, #fece51 100%);
+
+        &::before {
+          left: 100%;
+        }
+
+        &::after {
+          transform: translateY(-3px);
+        }
+      }
+
+      &:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      // Add a subtle border effect
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(135deg, #fece51, #face51, #fece51);
+        border-radius: 52px;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+
+      // Add a subtle pulse animation
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(254, 206, 81, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(254, 206, 81, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(254, 206, 81, 0);
+        }
+      }
+
+      &:focus {
+        animation: pulse 1.5s infinite;
+      }
+
+      // Override any Cloudinary default styles
+      img {
+        display: none !important;
+      }
+    }
+
+    // Add a decorative element
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(254, 206, 81, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .profileUpdatePage {
+    flex-direction: column;
+    padding: 1rem;
+
+    .formContainer, .sideContainer {
+      flex: none;
+      width: 100%;
+    }
+
+    .sideContainer {
+      padding: 2rem 1rem;
+      gap: 2rem;
+
+      .avatar {
+        width: 180px;
+        height: 180px;
+      }
+
+      :global(.cloudinary-button) {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        min-width: 180px;
+      }
+    }
+  }
+}
