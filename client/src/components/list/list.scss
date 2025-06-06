@@ -1,0 +1,18 @@
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+
+  &.empty {
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    
+    p {
+      color: #666;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  }
+}
