@@ -27,6 +27,51 @@ export const getPosts = async (req, res) => {
   }
 };
 
+// export const getPost = async (req, res) => {
+//   const id = req.params.id;
+//   try {
+//     const post = await prisma.post.findUnique({
+//       where: { id },
+//       include: {
+//         postDetail: true,
+//         user: {
+//           select: {
+//             id: true,
+//             username: true,
+//             avatar: true,
+//           },
+//         },
+//       },
+//     });
+
+//     const token = req.cookies?.token;
+
+//     if (!token) {
+//       return res.status(200).json({ ...post, isSaved: false });
+//     }
+
+//     jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
+//       if (err) {
+//         return res.status(200).json({ ...post, isSaved: false });
+//       }
+
+//       const saved = await prisma.savedPost.findUnique({
+//         where: {
+//           userId_postId: {
+//             postId: id,
+//             userId: payload.id,
+//           },
+//         },
+//       });
+      
+//       return res.status(200).json({ ...post, isSaved: saved ? true : false });
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ message: "Failed to get post" });
+//   }
+// };
+
 export const getPost = async (req, res) => {
   const id = req.params.id;
   try {
@@ -36,6 +81,7 @@ export const getPost = async (req, res) => {
         postDetail: true,
         user: {
           select: {
+            id: true,        
             username: true,
             avatar: true,
           },
@@ -110,10 +156,19 @@ export const deletePost = async (req, res) => {
       where: { id },
     });
 
+    if (!post) {
+      return res.status(404).json({ message: "Post Not Found!" });
+    }
     if (post.userId !== tokenUserId) {
       return res.status(403).json({ message: "Not Authorized!" });
     }
 
+    // Delete the associated PostDetail first
+    await prisma.postDetail.deleteMany({
+      where: { postId: id },
+    });
+
+    // Now delete the Post
     await prisma.post.delete({
       where: { id },
     });

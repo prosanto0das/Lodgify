@@ -19,11 +19,10 @@ function SinglePage() {
       return;
     }
     if (!window.confirm("Are you sure you want to delete this post?")) return;
-
     try {
-      await apiRequest.delete(/posts/${post.id});
+      await apiRequest.delete(`/posts/${post.id}`);
       alert("Post deleted!");
-      navigate("/"); 
+      navigate("/");
     } catch (err) {
       alert("Failed to delete post. You may only delete your own posts.");
       console.log(err);
