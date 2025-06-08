@@ -13,6 +13,23 @@ function SinglePage() {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const handleDelete = async () => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
+    if (!window.confirm("Are you sure you want to delete this post?")) return;
+
+    try {
+      await apiRequest.delete(/posts/${post.id});
+      alert("Post deleted!");
+      navigate("/"); 
+    } catch (err) {
+      alert("Failed to delete post. You may only delete your own posts.");
+      console.log(err);
+    }
+  };
+
   const handleSave = async () => {
     if (!currentUser) {
       navigate("/login");
@@ -25,6 +42,7 @@ function SinglePage() {
       setSaved((prev) => !prev);
     }
   };
+
 
   return (
     <div className="singlePage">
@@ -57,6 +75,7 @@ function SinglePage() {
       </div>
       <div className="features">
         <div className="wrapper">
+
           <p className="title">General</p>
           <div className="listVertical">
             <div className="feature">
@@ -89,6 +108,7 @@ function SinglePage() {
               </div>
             </div>
           </div>
+
           <p className="title">Sizes</p>
           <div className="sizes">
             <div className="size">
@@ -104,7 +124,7 @@ function SinglePage() {
               <span>{post.bathroom} bathroom</span>
             </div>
           </div>
-
+          
           <p className="title">Contact</p>
           <div className="sizes">
             <div className="size">
@@ -115,11 +135,7 @@ function SinglePage() {
               <img src="/email.png" alt="" />
               <span>{post.email}</span>
             </div>
-            
           </div>
-
-
-
 
           <p className="title">Nearby Places</p>
           <div className="listHorizontal">
@@ -164,6 +180,20 @@ function SinglePage() {
               <img src="/save.png" alt="" />
               {saved ? "Place Saved" : "Save the Place"}
             </button>
+            {/* Show delete button only if owner */}
+            {currentUser && post.user && currentUser.id === post.user.id && (
+              <button
+                onClick={handleDelete}
+                style={{
+                  backgroundColor: "#ff3636",
+                  color: "white",
+                  marginLeft: "10px",
+                }}
+              >
+                <img src="/delete.png" alt="" style={{ filter: "invert(1)" }} />
+                Delete Post
+              </button>
+            )}
           </div>
         </div>
       </div>

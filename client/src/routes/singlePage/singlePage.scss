@@ -209,6 +209,12 @@
             height: 16px;
           }
         }
+        // Optional: Style the delete button differently
+        button:last-child {
+          border: 1px solid #ff3636;
+          background-color: #ff3636;
+          color: #fff;
+        }
       }
     }
   }
