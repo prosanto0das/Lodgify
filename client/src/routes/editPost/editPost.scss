@@ -1,0 +1,323 @@
+.editPostPage {
+    height: 100%;
+    display: flex;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    gap: 2rem;
+  
+    .formContainer {
+      flex: 3;
+      overflow: scroll;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+  
+      h1 {
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+  
+      .wrapper {
+        margin: 0;
+        padding: 1rem;
+  
+        form {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+  
+          .item {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+  
+            label {
+              font-weight: 500;
+              color: #4a5568;
+              font-size: 0.95rem;
+            }
+  
+            input,
+            select {
+              padding: 0.75rem 1rem;
+              border-radius: 8px;
+              border: 1px solid #e2e8f0;
+              background-color: #f8fafc;
+              transition: all 0.2s ease;
+              font-size: 0.95rem;
+              color: #2d3748;
+  
+              &:hover {
+                border-color: #cbd5e0;
+              }
+  
+              &:focus {
+                outline: none;
+                border-color: #4299e1;
+                box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+                background-color: white;
+              }
+            }
+  
+            select {
+              cursor: pointer;
+              appearance: none;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: right 0.75rem center;
+              background-size: 1rem;
+              padding-right: 2.5rem;
+            }
+  
+            &.description {
+              width: 100%;
+              height: 320px;
+  
+              .quill {
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+  
+                .ql-toolbar {
+                  border-top-left-radius: 8px;
+                  border-top-right-radius: 8px;
+                  background-color: #f8fafc;
+                  border-color: #e2e8f0;
+                }
+  
+                .ql-container {
+                  border-bottom-left-radius: 8px;
+                  border-bottom-right-radius: 8px;
+                  border-color: #e2e8f0;
+                }
+  
+                .ql-editor {
+                  height: 200px;
+                  font-size: 1rem;
+                  color: #2d3748;
+                  line-height: 1.6;
+                }
+              }
+            }
+          }
+  
+          .sendButton {
+            width: 30%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: none;
+            background-color: #4299e1;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            margin-top: 1rem;
+  
+            &:hover {
+              background-color: #3182ce;
+              transform: translateY(-1px);
+              box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+            }
+  
+            &:active {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  
+    .sideContainer {
+      flex: 2;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: flex-start;
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+  
+      &::before {
+        content: "Image Gallery";
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        align-self: flex-start;
+      }
+  
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+        margin-bottom: 1rem;
+  
+        .image-item {
+          position: relative;
+          aspect-ratio: 1;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+  
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+            .remove-btn {
+              opacity: 1;
+            }
+          }
+  
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+  
+          .remove-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.2s ease;
+            color: #e53e3e;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+            &:hover {
+              background: #fff;
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+  
+      .upload-widget-container {
+        width: 100%;
+        padding: 1.5rem;
+        background: #f8fafc;
+        border: 2px dashed #cbd5e0;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.2s ease;
+        cursor: pointer;
+  
+        &:hover {
+          border-color: #4299e1;
+          background: #ebf8ff;
+  
+          .upload-icon {
+            color: #4299e1;
+            transform: scale(1.1);
+          }
+        }
+  
+        .upload-icon {
+          font-size: 2rem;
+          color: #a0aec0;
+          margin-bottom: 0.5rem;
+          transition: all 0.2s ease;
+        }
+  
+        .upload-text {
+          color: #4a5568;
+          font-size: 0.95rem;
+          font-weight: 500;
+        }
+  
+        .upload-hint {
+          color: #718096;
+          font-size: 0.85rem;
+          margin-top: 0.5rem;
+        }
+      }
+  
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+  
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background: #cbd5e0;
+        border-radius: 3px;
+  
+        &:hover {
+          background: #a0aec0;
+        }
+      }
+    }
+  }
+  
+  .contact-container {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+  
+    .item {
+      flex: 1;
+      width: 100%;
+  
+      input {
+        width: 100%;
+      }
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .editPostPage {
+      flex-direction: column;
+      padding: 1rem;
+  
+      .formContainer,
+      .sideContainer {
+        width: 100%;
+      }
+  
+      .sideContainer {
+        position: static;
+        margin-top: 2rem;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .editPostPage {
+      .formContainer {
+        .wrapper {
+          form {
+            .item {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
