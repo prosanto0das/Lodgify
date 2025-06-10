@@ -20,12 +20,17 @@ function SinglePage() {
     }
     if (!window.confirm("Are you sure you want to delete this post?")) return;
     try {
-      await apiRequest.delete(`/posts/${post.id}`);
+      const d = await apiRequest.delete(`/posts/${post.id}`);
+      console.log(d);   
       alert("Post deleted!");
       navigate("/");
     } catch (err) {
-      alert("Failed to delete post. You may only delete your own posts.");
-      console.log(err);
+      console.log(err); // Log the full error for debugging
+      if (err.response && err.response.status === 403) {
+        alert("Failed to delete post. You may only delete your own posts.");
+      } else {
+        alert("Failed to delete post. An unexpected error occurred.");
+      }
     }
   };
 
@@ -42,6 +47,9 @@ function SinglePage() {
     }
   };
 
+  // (Optional: for debugging ownership check!)
+  // console.log("currentUser:", currentUser);
+  // console.log("post.user:", post.user);
 
   return (
     <div className="singlePage">
@@ -74,7 +82,6 @@ function SinglePage() {
       </div>
       <div className="features">
         <div className="wrapper">
-
           <p className="title">General</p>
           <div className="listVertical">
             <div className="feature">
@@ -123,7 +130,7 @@ function SinglePage() {
               <span>{post.bathroom} bathroom</span>
             </div>
           </div>
-          
+
           <p className="title">Contact</p>
           <div className="sizes">
             <div className="size">
@@ -179,19 +186,31 @@ function SinglePage() {
               <img src="/save.png" alt="" />
               {saved ? "Place Saved" : "Save the Place"}
             </button>
-            {/* Show delete button only if owner */}
             {currentUser && post.user && currentUser.id === post.user.id && (
-              <button
-                onClick={handleDelete}
-                style={{
-                  backgroundColor: "#ff3636",
-                  color: "white",
-                  marginLeft: "10px",
-                }}
-              >
-                <img src="/delete.png" alt="" style={{ filter: "invert(1)" }} />
-                Delete Post
-              </button>
+              <>
+                <button
+                  onClick={() => navigate(`/edit/${post.id}`)}
+                  style={{
+                    backgroundColor: "#4CAF50",
+                    color: "white",
+                    marginLeft: "10px",
+                  }}
+                >
+                  <img src="/edit.png" alt="" style={{ filter: "invert(1)" }} />
+                  Update Post
+                </button>
+                <button
+                  onClick={handleDelete}
+                  style={{
+                    backgroundColor: "#ff3636",
+                    color: "white",
+                    marginLeft: "10px",
+                  }}
+                >
+                  <img src="/delete.png" alt="" style={{ filter: "invert(1)" }} />
+                  Delete Post
+                </button>
+              </>
             )}
           </div>
         </div>

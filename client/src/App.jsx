@@ -10,6 +10,7 @@ import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import NewPostPage from "./routes/newPostPage/newPostPage";
 import AgentProfile from "./routes/agentProfile/AgentProfile";
 import { listPageLoader, profilePageLoader, singlePageLoader } from "./lib/loaders";
+import EditPost from "./routes/editPost/editPost";
 
 function App() {
   const router = createBrowserRouter([
@@ -61,6 +62,10 @@ function App() {
         {
           path: "/add",
           element: <NewPostPage />,
+        },
+        {
+          path: "/edit/:id",                
+          element: <EditPost />,       
         },
       ],
     },
