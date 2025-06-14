@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState, useCallback } from "react";
 
-// Create a context to manage the script loading state
 const CloudinaryScriptContext = createContext();
 
 function UploadWidget({ uwConfig, setPublicId, setState }) {
@@ -8,11 +7,9 @@ function UploadWidget({ uwConfig, setPublicId, setState }) {
   const [widget, setWidget] = useState(null);
 
   useEffect(() => {
-    // Check if the script is already loaded
     if (!loaded) {
       const uwScript = document.getElementById("uw");
       if (!uwScript) {
-        // If not loaded, create and load the script
         const script = document.createElement("script");
         script.setAttribute("async", "");
         script.setAttribute("id", "uw");
