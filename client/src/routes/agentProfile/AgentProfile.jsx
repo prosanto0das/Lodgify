@@ -1,3 +1,5 @@
+
+
 import { Link } from "react-router-dom";
 import "./AgentProfile.scss";
 
@@ -11,9 +13,9 @@ function AgentProfile() {
       bio: "With over 5 years of experience in student housing, Prosanto specializes in finding the perfect accommodation for students.",
       skills: ["Student Housing", "Property Management", "Negotiation"],
       social: {
-        email: "prosanto@lodgify.com",
-        phone: "+1 234-567-8900"
-      }
+        email: "prosanto0das23@gmail.com",
+        phone: "+8801701140907",
+      },
     },
     {
       id: 2,
@@ -23,9 +25,9 @@ function AgentProfile() {
       bio: "Nayma has helped hundreds of students find their ideal living spaces near universities.",
       skills: ["Student Relations", "Location Analysis", "Budget Planning"],
       social: {
-        email: "nayma@lodgify.com",
-        phone: "+1 234-567-8901"
-      }
+        email: "nayma.cse16@gmail.com",
+        phone: "+8801715954503",
+      },
     },
     {
       id: 3,
@@ -35,61 +37,66 @@ function AgentProfile() {
       bio: "Habiba specializes in connecting students with quality mess and lodging facilities.",
       skills: ["Mess Management", "Student Welfare", "Community Building"],
       social: {
-        email: "habiba@lodgify.com",
-        phone: "+1 234-567-8902"
-      }
-    }
+        email: "priyajahn2001@gmail.com",
+        phone: "+8801715954503",
+      },
+    },
   ];
 
-  // Function to handle email click with direct window.location approach
-  const handleEmailClick = (email) => {
-    window.location.href = `mailto:${email}`;
-    return false; // Prevent default behavior
+  
+  const openGmailCompose = (email) => {
+    const subject = encodeURIComponent("Student accommodation enquiry");
+    const body = encodeURIComponent(
+      "Hi,\n\nI would like to know more about your services.\n\nThanks,"
+    );
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+    window.open(gmailURL, "_blank");
   };
 
   return (
     <div className="agent-profile-container">
       <Link to="/" className="back-button">
-        <i className="fas fa-arrow-left"></i> Back to Home
+        <i className="fas fa-arrow-left" />
+        Back to Home
       </Link>
-      
+
       <div className="agents-grid">
         {agents.map((agent) => (
           <div key={agent.id} className="agent-card">
             <div className="agent-image">
               <img src={agent.image} alt={agent.name} />
             </div>
+
             <div className="agent-info">
               <h2>{agent.name}</h2>
               <h3>{agent.role}</h3>
               <p className="bio">{agent.bio}</p>
-              
+
               <div className="skills">
-                {agent.skills.map((skill, index) => (
-                  <span key={index} className="skill-tag">
+                {agent.skills.map((skill, i) => (
+                  <span key={i} className="skill-tag">
                     {skill}
                   </span>
                 ))}
               </div>
-              
+
               <div className="social-links">
-                {/* Updated email link with onclick handler and rel attributes */}
-                <a 
-                  href={`mailto:${agent.social.email}`}
-                  onClick={() => handleEmailClick(agent.social.email)} 
+                {/* Gmail-compose button */}
+                <button
+                  type="button"
                   className="social-link"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                  onClick={() => openGmailCompose(agent.social.email)}
                 >
-                  <i className="fas fa-envelope"></i>
+                  <i className="fas fa-envelope" />
                   Email
-                </a>
-                <a 
-                  href={`tel:${agent.social.phone}`} 
+                </button>
+
+                {/* Normal tel: link */}
+                <a
+                  href={`tel:${agent.social.phone}`}
                   className="social-link"
-                  rel="noopener noreferrer"
                 >
-                  <i className="fas fa-phone"></i>
+                  <i className="fas fa-phone" />
                   Call
                 </a>
               </div>
