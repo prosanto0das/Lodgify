@@ -5,7 +5,7 @@ function AgentProfile() {
   const agents = [
     {
       id: 1,
-      name: "Prosanto",
+      name: "Prosanto Das",
       role: "Senior Property Manager",
       image: "/prosanto.jpg",
       bio: "With over 5 years of experience in student housing, Prosanto specializes in finding the perfect accommodation for students.",
@@ -17,26 +17,26 @@ function AgentProfile() {
     },
     {
       id: 2,
-      name: "Nayma",
+      name: "Jannatun Nayma",
       role: "Student Housing Specialist",
-      image: "/nayma.jpg",
+      image: "/nayma1.jpg",
       bio: "Nayma has helped hundreds of students find their ideal living spaces near universities.",
       skills: ["Student Relations", "Location Analysis", "Budget Planning"],
       social: {
         email: "nayma.cse16@gmail.com",
-        phone: "+8801715954503",
+        phone: "+8801831164404",
       },
     },
     {
       id: 3,
-      name: "Habiba",
+      name: "Habiba Jahan",
       role: "Mess & Lodging Coordinator",
       image: "/habiba.jpg",
       bio: "Habiba specializes in connecting students with quality mess and lodging facilities.",
       skills: ["Mess Management", "Student Welfare", "Community Building"],
       social: {
         email: "priyajahn2001@gmail.com",
-        phone: "+8801715954503",
+        phone: "+8801618367590",
       },
     },
   ];
