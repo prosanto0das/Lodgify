@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import "../../styles/AgentProfile.scss";
+import "./AgentProfile.scss";
 
 function AgentProfile() {
-  // Sample agent data - in a real app, this would come from an API
   const agents = [
     {
       id: 1,
@@ -42,6 +41,12 @@ function AgentProfile() {
     }
   ];
 
+  // Function to handle email click with direct window.location approach
+  const handleEmailClick = (email) => {
+    window.location.href = `mailto:${email}`;
+    return false; // Prevent default behavior
+  };
+
   return (
     <div className="agent-profile-container">
       <Link to="/" className="back-button">
@@ -68,11 +73,22 @@ function AgentProfile() {
               </div>
               
               <div className="social-links">
-                <a href={`mailto:${agent.social.email}`} className="social-link">
+                {/* Updated email link with onclick handler and rel attributes */}
+                <a 
+                  href={`mailto:${agent.social.email}`}
+                  onClick={() => handleEmailClick(agent.social.email)} 
+                  className="social-link"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <i className="fas fa-envelope"></i>
                   Email
                 </a>
-                <a href={`tel:${agent.social.phone}`} className="social-link">
+                <a 
+                  href={`tel:${agent.social.phone}`} 
+                  className="social-link"
+                  rel="noopener noreferrer"
+                >
                   <i className="fas fa-phone"></i>
                   Call
                 </a>
@@ -85,4 +101,4 @@ function AgentProfile() {
   );
 }
 
-export default AgentProfile; 
+export default AgentProfile;
