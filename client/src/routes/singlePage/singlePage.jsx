@@ -47,6 +47,15 @@ function SinglePage() {
     }
   };
 
+  const handleEmailClick = () => {
+    const subject = encodeURIComponent(`Inquiry about ${post.title}`);
+    const body = encodeURIComponent(
+      `Hi,\n\nI am interested in your listing "${post.title}".\n\nPlease provide more information.\n\nThanks,`
+    );
+    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${post.email}&su=${subject}&body=${body}`;
+    window.open(gmailURL, "_blank");
+  };
+
   // (Optional: for debugging ownership check!)
   // console.log("currentUser:", currentUser);
   // console.log("post.user:", post.user);
@@ -174,9 +183,15 @@ function SinglePage() {
           <div className="sizes">
             <div className="size">
               <img src="/phone.png" alt="" />
-              <span>{post.mobileNumber}</span>
+              <a href={`tel:${post.mobileNumber}`}>
+                <span>{post.mobileNumber}</span>
+              </a>
             </div>
-            <div className="size">
+            <div
+              className="size"
+              onClick={handleEmailClick}
+              style={{ cursor: "pointer" }}
+            >
               <img src="/email.png" alt="" />
               <span>{post.email}</span>
             </div>
