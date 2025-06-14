@@ -16,7 +16,7 @@
 
     .details, .chatContainer {
         flex: 3;
-        overflow-y: scroll;
+        overflow-y: auto;
         padding-bottom: 50px;
         background: rgba(255, 255, 255, 0.85);
         border-radius: 12px;
@@ -27,6 +27,7 @@
         @include md {
             flex: none;
             height: max-content;
+            overflow-y: visible;
         }
 
         .wrapper {
