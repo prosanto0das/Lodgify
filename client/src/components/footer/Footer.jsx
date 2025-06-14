@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./footer.scss";
 
 // You can use any icon library for the social and contact icons (e.g., Font Awesome or simple Unicode)
@@ -19,9 +20,9 @@ export default function Footer() {
         <div className="footerCol">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Properties</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/list">Properties</Link></li>
+            <li><Link to="/agents">Contacts</Link></li>
           </ul>
         </div>
 
