@@ -269,6 +269,15 @@ nav{
             &.active{
                 right: 0;
             }
+            .closeIcon {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 32px !important; /* Adjusted size to match menu icon */
+                height: 32px !important; /* Adjusted size to match menu icon */
+                cursor: pointer;
+                z-index: 1001;
+            }
         }
     }
 }

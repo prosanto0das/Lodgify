@@ -60,6 +60,15 @@ function Navbar() {
                     />
                 </div>
                 <div className={open ? "menu active" : "menu"}>
+                    <img 
+                        src='Close.svg' 
+                        alt="" 
+                        className="closeIcon"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setOpen(false);
+                        }}
+                    />
                     <Link to="/">Home</Link>
                     <Link to="/agents">Contacts</Link>
                     <Link to="/list">Properties</Link>
