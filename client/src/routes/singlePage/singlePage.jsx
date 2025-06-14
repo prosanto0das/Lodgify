@@ -180,7 +180,10 @@ function SinglePage() {
             <button
               onClick={handleSave}
               style={{
-                backgroundColor: saved ? "#fece51" : "white",
+                
+                backgroundColor: saved ? "#4CAF50" : "#fece51",
+                color: saved ? "white" : "black",
+                border: saved ? "1px solid #4CAF50" : "1px solid #fece51",
               }}
             >
               <img src="/save.png" alt="" />
