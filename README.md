@@ -59,7 +59,7 @@ People worldwide face the same lodging challenges:
 | --------- | ----------------------------------------- |
 | Front-End | React • Vite • Sass (SCSS) • React Router |
 | Back-End  | Node.js • Express.js • Prisma (ORM)       |
-| Database  | MongoDB • Mongoose                        |
+| Database  | MongoDB • Prisma                        |
 | Auth      | JSON Web Tokens (JWT) • bcrypt            |
 
 Project structure: `/api` (server) and `/client` (React app).
@@ -73,6 +73,9 @@ Project structure: `/api` (server) and `/client` (React app).
 * Node.js v18.x or later
 * npm
 * MongoDB (local or Atlas)
+* cors
+* jsonwebtoken
+* prisma
 
 ### Installation
 
