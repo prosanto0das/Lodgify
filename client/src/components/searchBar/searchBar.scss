@@ -1,98 +1,180 @@
 @import "../../responsive.scss";
 
 .searchBar {
-  .type {
+  background-color: rgba(255, 255, 255, 0.6); /* Translucent white */
+  backdrop-filter: blur(8px); /* Frosted glass effect */
+  border-radius: 20px; /* More rounded */
+  padding: 25px; /* Significantly increased padding */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* More prominent, soft shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap */
+  width: fit-content;
+  margin: 40px auto; /* More margin to stand out */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for glass effect */
 
+  @include sm {
+    padding: 15px;
+    gap: 15px;
+    width: 95%;
+  }
+
+  .type {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.4); /* Lighter translucent background for buttons */
+    border-radius: 15px; /* More rounded */
+    overflow: hidden;
+    padding: 5px; /* Padding for the container of type buttons */
+
+    @include sm {
+      margin-bottom: 0;
+    }
 
     button {
-      padding: 16px 36px;
-      border: 1px solid #999;
-      border-bottom: none;
+      flex: 1;
+      padding: 14px 28px; /* Increased padding */
+      border: none;
+      background-color: transparent;
       cursor: pointer;
-      background-color: white;
-      text-transform: capitalize;
+      font-size: 18px; /* Larger font */
+      font-weight: 600; /* Bolder font */
+      color: #333; /* Darker neutral text color */
+      border-radius: 12px; /* More rounded for individual buttons */
+      transition: all 0.3s ease-in-out;
+      position: relative; /* For subtle highlight */
+
+      @include sm {
+        padding: 12px 20px;
+        font-size: 16px;
+      }
 
       &.active {
-        background-color: black;
+        background: linear-gradient(45deg, #6a82fb, #fc5c7d); /* Vibrant gradient */
         color: white;
+        box-shadow: 0 6px 15px rgba(106, 130, 251, 0.4); /* Gradient-matching shadow */
+        transform: translateY(-3px); /* Subtle lift */
+      }
+
+      &:hover:not(.active) {
+        background-color: rgba(255, 255, 255, 0.3); /* Even lighter translucent hover */
+        color: #111;
       }
 
       &:first-child {
-        border-top-left-radius: 5px;
-        border-right: none;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
       }
       &:last-child {
-        border-top-right-radius: 5px;
-        border-left: none;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
       }
     }
   }
 
   form {
-    border: 1px solid #999;
     display: flex;
-    justify-content: space-between;
-    height: 64px;
-    gap: 5px;
+    gap: 15px; /* Increased gap */
+    width: 100%;
+    align-items: center;
 
     @include sm {
       flex-direction: column;
-      border: none;
+      gap: 12px;
     }
 
-    input {
-      border: none;
-      padding: 0px 10px;
-      width: 200px;
-
-      @include lg {
-        padding: 0px 5px;
-
-        &:nth-child(2),
-        &:nth-child(3) {
-          width: 140px;
-        }
-      }
-      @include md {
-        width: 200px;
-        &:nth-child(2),
-        &:nth-child(3) {
-          width: 200px;
-        }
-      }
-
-      @include sm{
-        width: auto;
-        &:nth-child(2),
-        &:nth-child(3) {
-          width: auto;
-        }
-        padding: 20px;
-        border: 1px solid #999;
-      }
-    }
-
-    a{
+    .inputIcon {
       flex: 1;
-      background-color: #fece51;
       display: flex;
       align-items: center;
-      justify-content: center;
+      border: none; /* No border for input field */
+      border-radius: 12px; /* More rounded */
+      padding: 0 18px; /* Increased horizontal padding */
+      background-color: rgba(255, 255, 255, 0.7); /* Slightly opaque white for input */
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+      transition: all 0.3s ease;
 
-      button {
-        border: none;
-        cursor: pointer;
-        background-color: #fece51;
-        
-        @include sm{
-          padding: 10px;
+      &:focus-within {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(106, 130, 251, 0.2); /* Soft glow on focus */
+        background-color: white; /* Solid white on focus */
+      }
+
+      @include sm {
+        padding: 10px 15px;
+      }
+
+      i {
+        font-size: 20px; /* Larger icon */
+        color: #777; /* Softer icon color */
+        margin-right: 12px; /* Increased margin */
+
+        @include sm {
+          font-size: 18px;
+          margin-right: 10px;
         }
-        
-        img {
-          width: 24px;
-          height: 24px;
+      }
+
+      input {
+        flex: 1;
+        padding: 16px 0; /* Increased vertical padding */
+        border: none;
+        font-size: 17px; /* Adjusted font size */
+        outline: none;
+        background-color: transparent;
+
+        @include sm {
+          padding: 12px 0;
+          font-size: 15px;
+        }
+
+        &::placeholder {
+          color: #999; /* Lighter placeholder color */
+        }
+      }
+    }
+
+    button {
+      background: linear-gradient(45deg, #2ecc71, #3498db); /* Green-blue gradient */
+      border: none;
+      padding: 16px 35px; /* Significantly increased padding */
+      border-radius: 12px; /* More rounded */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px; /* Increased gap */
+      font-size: 19px; /* Larger font */
+      font-weight: 700; /* Bolder font */
+      color: white;
+      box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3); /* Gradient-matching shadow */
+      transition: all 0.3s ease;
+
+      @include sm {
+        padding: 14px 30px;
+        font-size: 17px;
+        gap: 10px;
+      }
+
+      &:hover {
+        background: linear-gradient(45deg, darken(#2ecc71, 5%), darken(#3498db, 5%)); /* Darker gradient on hover */
+        transform: translateY(-3px); /* Prominent lift on hover */
+        box-shadow: 0 12px 25px rgba(46, 204, 113, 0.4); /* More prominent shadow on hover */
+      }
+
+      i {
+        width: 24px; /* Larger icon */
+        height: 24px;
+        color: white;
+        font-size: 24px; /* Larger icon font size */
+
+        @include sm {
+          width: 20px;
+          height: 20px;
+          font-size: 20px;
         }
       }
     }
   }
 }
+

@@ -34,33 +34,43 @@ function SearchBar() {
         ))}
       </div>
       <form>
-        <input
-          type="text"
-          name="city"
-          placeholder="City"
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="minPrice"
-          min={0}
-          max={10000000}
-          placeholder="Min Price"
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="maxPrice"
-          min={0}
-          max={10000000}
-          placeholder="Max Price"
-          onChange={handleChange}
-        />
+        <div className="inputIcon">
+          <i className="fa-solid fa-location-dot"></i>
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="inputIcon">
+          <i className="fa-solid fa-dollar-sign"></i>
+          <input
+            type="number"
+            name="minPrice"
+            min={0}
+            max={10000000}
+            placeholder="Min Price"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="inputIcon">
+          <i className="fa-solid fa-dollar-sign"></i>
+          <input
+            type="number"
+            name="maxPrice"
+            min={0}
+            max={10000000}
+            placeholder="Max Price"
+            onChange={handleChange}
+          />
+        </div>
         <Link
           to={`/list?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}`}
         >
           <button>
-            <img src="/search.png" alt="" />
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
           </button>
         </Link>
       </form>

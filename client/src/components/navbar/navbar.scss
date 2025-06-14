@@ -44,6 +44,12 @@ nav{
         &:hover::after {
             width: 100%;
         }
+
+        i {
+            margin-right: 8px;
+            font-size: 18px;
+            vertical-align: middle;
+        }
     }
   
     .left{
@@ -99,6 +105,42 @@ nav{
             z-index: 102;
             border-radius: 8px;
             transition: all 0.3s ease;
+        }
+
+        .signInButton {
+            color: #2d3436;
+            font-weight: 500;
+            i {
+                color: #2d3436;
+            }
+            &:hover {
+                color: #ff8b94;
+                i {
+                    color: #ff8b94;
+                }
+            }
+            &::after {
+                display: none;
+            }
+        }
+
+        .signUpButton {
+            background: linear-gradient(to right, #a8e6cf, #5cb85c);
+            color: #fff;
+            border-radius: 8px;
+            position: relative;
+            z-index: 102;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 10px 22px;
+
+            i {
+                color: #fff;
+            }
+
+            &:hover {
+                background: linear-gradient(to right, darken(#a8e6cf, 5%), darken(#5cb85c, 5%));
+            }
         }
 
         .user{
@@ -165,19 +207,6 @@ nav{
             }
         }
 
-        .register{
-            background-color: #ff8b94;
-            color: #fff;
-            border-radius: 8px;
-            position: relative;
-            z-index: 102;
-            font-weight: 600;
-            transition: all 0.3s ease;
-
-            &:hover {
-                background-color: darken(#ff8b94, 5%);
-            }
-        }
         .menuIcon{
             display: none ;
             z-index: 999;

@@ -10,6 +10,13 @@ function ListPage() {
 
   return (
     <div className="listPage">
+      {/* Animated bubbles */}
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+
       <div className="listContainer">
         <div className="wrapper">
           <Filter />

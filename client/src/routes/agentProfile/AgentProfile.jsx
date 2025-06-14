@@ -1,5 +1,3 @@
-
-
 import { Link } from "react-router-dom";
 import "./AgentProfile.scss";
 
@@ -55,6 +53,17 @@ function AgentProfile() {
 
   return (
     <div className="agent-profile-container">
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+
       <Link to="/" className="back-button">
         <i className="fas fa-arrow-left" />
         Back to Home

@@ -82,7 +82,20 @@ function SinglePage() {
       </div>
       <div className="features">
         <div className="wrapper">
-          <p className="title">General</p>
+          <p className="title" style={{
+            fontSize: "24px",
+            fontWeight: "600",
+            color: "#1a237e",
+            padding: "15px 0",
+            margin: "30px 0 20px",
+            borderBottom: "3px solid #7c4dff",
+            borderTop: "3px solid #7c4dff",
+            textAlign: "center",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+            background: "linear-gradient(to right, rgba(124, 77, 255, 0.1), rgba(0, 229, 255, 0.1))",
+            borderRadius: "8px"
+          }}>General</p>
           <div className="listVertical">
             <div className="feature">
               <img src="/utility.png" alt="" />
@@ -115,7 +128,20 @@ function SinglePage() {
             </div>
           </div>
 
-          <p className="title">Sizes</p>
+          <p className="title" style={{
+            fontSize: "24px",
+            fontWeight: "600",
+            color: "#1a237e",
+            padding: "15px 0",
+            margin: "30px 0 20px",
+            borderBottom: "3px solid #7c4dff",
+            borderTop: "3px solid #7c4dff",
+            textAlign: "center",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+            background: "linear-gradient(to right, rgba(124, 77, 255, 0.1), rgba(0, 229, 255, 0.1))",
+            borderRadius: "8px"
+          }}>Sizes</p>
           <div className="sizes">
             <div className="size">
               <img src="/size.png" alt="" />
@@ -131,7 +157,20 @@ function SinglePage() {
             </div>
           </div>
 
-          <p className="title">Contact</p>
+          <p className="title" style={{
+            fontSize: "24px",
+            fontWeight: "600",
+            color: "#1a237e",
+            padding: "15px 0",
+            margin: "30px 0 20px",
+            borderBottom: "3px solid #7c4dff",
+            borderTop: "3px solid #7c4dff",
+            textAlign: "center",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+            background: "linear-gradient(to right, rgba(124, 77, 255, 0.1), rgba(0, 229, 255, 0.1))",
+            borderRadius: "8px"
+          }}>Contact</p>
           <div className="sizes">
             <div className="size">
               <img src="/phone.png" alt="" />
@@ -143,7 +182,20 @@ function SinglePage() {
             </div>
           </div>
 
-          <p className="title">Nearby Places</p>
+          <p className="title" style={{
+            fontSize: "24px",
+            fontWeight: "600",
+            color: "#1a237e",
+            padding: "15px 0",
+            margin: "30px 0 20px",
+            borderBottom: "3px solid #7c4dff",
+            borderTop: "3px solid #7c4dff",
+            textAlign: "center",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+            background: "linear-gradient(to right, rgba(124, 77, 255, 0.1), rgba(0, 229, 255, 0.1))",
+            borderRadius: "8px"
+          }}>Nearby Places</p>
           <div className="listHorizontal">
             <div className="feature">
               <img src="/school.png" alt="" />
@@ -172,7 +224,20 @@ function SinglePage() {
               </div>
             </div>
           </div>
-          <p className="title">Location</p>
+          <p className="title" style={{
+            fontSize: "24px",
+            fontWeight: "600",
+            color: "#1a237e",
+            padding: "15px 0",
+            margin: "30px 0 20px",
+            borderBottom: "3px solid #7c4dff",
+            borderTop: "3px solid #7c4dff",
+            textAlign: "center",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+            background: "linear-gradient(to right, rgba(124, 77, 255, 0.1), rgba(0, 229, 255, 0.1))",
+            borderRadius: "8px"
+          }}>Location</p>
           <div className="mapContainer">
             <Map items={[post]} />
           </div>
@@ -180,10 +245,9 @@ function SinglePage() {
             <button
               onClick={handleSave}
               style={{
-                
-                backgroundColor: saved ? "#4CAF50" : "#fece51",
-                color: saved ? "white" : "black",
-                border: saved ? "1px solid #4CAF50" : "1px solid #fece51",
+                backgroundColor: saved ? "#7c4dff" : "#00e5ff",
+                color: "white",
+                border: saved ? "1px solid #7c4dff" : "1px solid #00e5ff",
               }}
             >
               <img src="/save.png" alt="" />
@@ -194,7 +258,7 @@ function SinglePage() {
                 <button
                   onClick={() => navigate(`/edit/${post.id}`)}
                   style={{
-                    backgroundColor: "#4CAF50",
+                    backgroundColor: "#7c4dff",
                     color: "white",
                     marginLeft: "10px",
                   }}
@@ -205,7 +269,7 @@ function SinglePage() {
                 <button
                   onClick={handleDelete}
                   style={{
-                    backgroundColor: "#ff3636",
+                    backgroundColor: "#ff4081",
                     color: "white",
                     marginLeft: "10px",
                   }}

@@ -38,6 +38,12 @@ function Login() {
   };
   return (
     <div className="login">
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="shape shape1"></div>
+      <div className="shape shape2"></div>
+      <div className="shape shape3"></div>
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Welcome back</h1>
@@ -59,9 +65,6 @@ function Login() {
           {error && <span>{error}</span>}
           <Link to="/register">{"Don't"} you have an account?</Link>
         </form>
-      </div>
-      <div className="imgContainer">
-        <img src="/bg.png" alt="" />
       </div>
     </div>
   );

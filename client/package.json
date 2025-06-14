@@ -13,6 +13,8 @@
     "axios": "^1.6.7",
     "dompurify": "^3.2.6",
     "leaflet": "^1.9.4",
+    "lodash": "^4.17.21",
+    "quill": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
@@ -31,6 +33,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.4.19"
+    "vite": "^6.3.5"
   }
 }

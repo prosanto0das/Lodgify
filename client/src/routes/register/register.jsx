@@ -36,6 +36,12 @@ function Register() {
   };
   return (
     <div className="registerPage">
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="shape shape1"></div>
+      <div className="shape shape2"></div>
+      <div className="shape shape3"></div>
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Create an Account</h1>
@@ -46,9 +52,6 @@ function Register() {
           {error && <span>{error}</span>}
           <Link to="/login">Do you have an account?</Link>
         </form>
-      </div>
-      <div className="imgContainer">
-        <img src="/bg.png" alt="" />
       </div>
     </div>
   );

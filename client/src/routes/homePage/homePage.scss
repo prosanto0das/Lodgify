@@ -1,260 +1,291 @@
+@import "../../responsive.scss";
+
 .homePage {
     display: flex;
+    flex-direction: column;
     height: 100vh;
-    width: 100%;
-    overflow-y: scroll;
+    background: radial-gradient(circle at top left, #f3fcf3, #e9f4ea 70%); /* Subtle gradient */
+    overflow-y: auto;
     overflow-x: hidden;
     position: relative;
 
-    background-color: #e9f4ea;
-
-    // Cool bubbles background
-    &::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-        z-index: 0;
-        pointer-events: none;
-    }
-
-    // Bubbles animation
     .bubble {
-        position: fixed;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4); /* Slightly less opaque */
         border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
-                    inset 0 0 25px rgba(255, 255, 255, 0.6),
-                    0 0 30px rgba(135, 206, 250, 0.3);
-        backdrop-filter: blur(2px);
-        animation: float-bubble 15s ease-in-out infinite;
-        opacity: 0.8;
-        z-index: 0;
-        pointer-events: none;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        filter: blur(2px); /* Add a slight blur to bubbles */
+        animation: float-bubble 15s infinite ease-in-out alternate;
+        z-index: 0; /* Ensure bubbles are in the background */
+    }
 
-        &:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            left: 10%;
-            top: 20%;
-            animation-duration: 20s;
-            animation-delay: 0s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(173, 216, 230, 0.4));
+    .bubble:nth-child(1) {
+        width: 70px; /* Slightly larger */
+        height: 70px;
+        top: 8%; /* Adjusted position */
+        left: 7%; /* Adjusted position */
+        animation-duration: 13s; /* Slightly different speed */
+        opacity: 0.6;
+    }
+
+    .bubble:nth-child(2) {
+        width: 90px; /* Slightly larger */
+        height: 90px;
+        top: 22%; /* Adjusted position */
+        right: 8%; /* Adjusted position */
+        animation-duration: 19s; /* Slightly different speed */
+        opacity: 0.5;
+    }
+
+    .bubble:nth-child(3) {
+        width: 110px; /* Slightly larger */
+        height: 110px;
+        bottom: 18%; /* Adjusted position */
+        left: 22%; /* Adjusted position */
+        animation-duration: 15s; /* Slightly different speed */
+        opacity: 0.7;
+    }
+
+    .bubble:nth-child(4) {
+        width: 80px;
+        height: 80px;
+        top: 38%;
+        left: 28%;
+        animation-duration: 17s;
+        opacity: 0.4;
+    }
+
+    .bubble:nth-child(5) {
+        width: 100px;
+        height: 100px;
+        bottom: 7%;
+        right: 23%;
+        animation-duration: 21s;
+        opacity: 0.65;
+    }
+
+    .bubble:nth-child(6) {
+        width: 60px;
+        height: 60px;
+        top: 52%;
+        right: 7%;
+        animation-duration: 11s;
+        opacity: 0.55;
+    }
+
+    .bubble:nth-child(7) {
+        width: 120px;
+        height: 120px;
+        top: 62%;
+        left: 13%;
+        animation-duration: 23s;
+        opacity: 0.75;
+    }
+
+    .bubble:nth-child(8) {
+        width: 75px;
+        height: 75px;
+        bottom: 32%;
+        left: 38%;
+        animation-duration: 14s;
+        opacity: 0.45;
+    }
+
+    .bubble:nth-child(9) {
+        width: 105px;
+        height: 105px;
+        top: 7%;
+        left: 43%;
+        animation-duration: 20s;
+        opacity: 0.6;
+    }
+
+    .bubble:nth-child(10) {
+        width: 85px;
+        height: 85px;
+        bottom: 22%;
+        right: 38%;
+        animation-duration: 18s;
+        opacity: 0.5;
+    }
+
+    @include md {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        overflow-y: visible;
+    }
+
+    .mainContentWrapper {
+        display: flex;
+        flex-direction: row;
+        flex: 1; /* Allow the wrapper to grow and take available space */
+        width: 100%; /* Ensure it always takes full width */
+        align-items: stretch;
+        margin-bottom: 60px; /* Added space above the footer */
+
+        @include md {
+            flex-direction: column;
+            align-items: center; /* Center items horizontally when stacked */
+            justify-content: center; /* Center items vertically when stacked */
+            text-align: center; /* Center text within the wrapper */
+            padding: 20px 0; /* Add vertical padding when stacked */
+            margin: 0 auto 40px auto; /* Center the wrapper itself and add bottom margin for md screens */
+            flex: auto; /* Allow mainContentWrapper to take natural height when stacked */
+            max-width: 768px; /* Limit width on larger tablet screens for better appearance */
         }
 
-        &:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            left: 20%;
-            top: 70%;
-            animation-duration: 25s;
-            animation-delay: 2s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(135, 206, 250, 0.4));
-        }
-
-        &:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            left: 40%;
-            top: 30%;
-            animation-duration: 18s;
-            animation-delay: 5s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.92), rgba(176, 224, 230, 0.4));
-        }
-
-        &:nth-child(4) {
-            width: 100px;
-            height: 100px;
-            left: 65%;
-            top: 60%;
-            animation-duration: 22s;
-            animation-delay: 1s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.88), rgba(135, 206, 250, 0.5));
-        }
-
-        &:nth-child(5) {
-            width: 50px;
-            height: 50px;
-            left: 80%;
-            top: 15%;
-            animation-duration: 15s;
-            animation-delay: 3s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.94), rgba(173, 216, 230, 0.3));
-        }
-
-        &:nth-child(6) {
-            width: 90px;
-            height: 90px;
-            left: 85%;
-            top: 50%;
-            animation-duration: 28s;
-            animation-delay: 7s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(135, 206, 250, 0.4));
-        }
-
-        &:nth-child(7) {
-            width: 70px;
-            height: 70px;
-            left: 30%;
-            top: 85%;
-            animation-duration: 19s;
-            animation-delay: 4s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.91), rgba(176, 224, 230, 0.4));
-        }
-
-        &:nth-child(8) {
-            width: 110px;
-            height: 110px;
-            left: 50%;
-            top: 10%;
-            animation-duration: 24s;
-            animation-delay: 6s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.87), rgba(135, 206, 250, 0.5));
-        }
-
-        &:nth-child(9) {
-            width: 40px;
-            height: 40px;
-            left: 15%;
-            top: 45%;
-            animation-duration: 17s;
-            animation-delay: 8s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.96), rgba(173, 216, 230, 0.3));
-        }
-
-        &:nth-child(10) {
-            width: 130px;
-            height: 130px;
-            left: 75%;
-            top: 80%;
-            animation-duration: 26s;
-            animation-delay: 9s;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(135, 206, 250, 0.5));
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 15%;
-            left: 20%;
-            width: 30%;
-            height: 30%;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        @include sm {
+            padding: 10px 0; /* Adjust padding for smaller screens */
+            max-width: 100%; /* Ensure it takes full width on small phones */
+            margin: 0 auto 30px auto; /* Add bottom margin for sm screens */
         }
     }
 
-    // Colorful gradient waves
-   
     .textContainer {
         flex: 3;
-        position: relative;
-        z-index: 1;
+        display: flex;
+        flex-direction: column; /* Ensure content inside textContainer stacks properly */
+        align-items: center; /* Center content horizontally */
+        justify-content: center;
+        width: 100%; /* Ensure textContainer takes full width of its parent */
+        padding: 0 40px; /* Adjusted padding for better spacing */
+
+        @include md {
+            flex: auto; /* Allow textContainer to take natural height when stacked */
+            padding: 0 20px; /* Add some horizontal padding for smaller screens */
+            width: 100%; /* Ensure it takes full width of parent when stacked */
+            text-align: center; /* Center text within textContainer */
+            margin: 0 auto 40px auto; /* Center horizontally and add more bottom margin */
+        }
+
+        @include sm {
+            margin-bottom: 30px; /* Adjust margin for smaller screens */
+            padding: 0 15px; /* Further adjust padding for smaller screens */
+        }
 
         .wrapper {
-            padding: 0 50px;
+            padding: 0px 50px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 50px;
-            height: 100%;
+            gap: 40px; /* Slightly reduced gap for a tighter look */
+            width: 100%; /* Ensure wrapper takes full width */
+            max-width: 900px; /* Added max-width for better control on larger screens */
+            text-align: center; /* Center text within wrapper */
 
-            @media (max-width: 768px) {
-                padding: 0 20px;
-                gap: 30px;
+            @include md {
+                padding: 0; /* Reset padding to be handled by textContainer */
+                align-items: center; /* Center content in wrapper when stacked */
+                text-align: center; /* Center text */
+                gap: 30px; /* Adjusted gap for medium screens */
             }
 
-            @media (max-width: 640px) {
-                justify-content: flex-start;
-                padding-top: 50px;
+            @include sm {
+                gap: 25px; /* Adjust gap for smaller screens */
             }
 
             .title {
-                font-size: 50px;
-                font-weight: bold;
-                color: #1f2937;
-                line-height: 1.1;
-                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                background: linear-gradient(to right, #1a365d, #2563eb);
+                font-size: 68px; /* Slightly larger */
+                font-weight: 700; /* Bolder */
+                line-height: 1.2; /* Improved line height */
+                margin-bottom: 10px; /* Added bottom margin */
+
+                background: linear-gradient(to right, #1a365d, #2563eb); /* Keep gradient */
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 animation: title-shine 3s ease-in-out infinite alternate;
 
-                @media (max-width: 1024px) {
-                    font-size: 48px;
+                span {
+                    color: #2d3436; /* Darker color for 'from Home' */
+                    -webkit-text-fill-color: initial; /* Override transparent fill */
                 }
 
-                @media (max-width: 768px) {
-                    font-size: 36px;
+                @include lg {
+                    font-size: 58px; /* Adjusted for larger desktops */
+                    line-height: 1.25;
+                }
+
+                @include md {
+                    font-size: 48px; /* Adjusted for tablets */
+                    line-height: 1.3;
+                }
+
+                @include sm {
+                    font-size: 38px; /* Adjusted for smaller phones */
+                    line-height: 1.4;
                 }
             }
 
             p {
-                font-size: 18px;
-                color: #374151;
-                line-height: 1.6;
-                max-width: 600px;
-                text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-                font-weight: 500;
+                font-size: 20px; /* Kept same */
+                font-weight: 400; /* Slightly lighter */
+                color: #4a4a4a; /* Darker grey for better readability */
+                line-height: 1.6; /* Improved line height */
+                max-width: 700px; /* Limit paragraph width for better readability */
+                margin: 0 auto; /* Center paragraph */
 
-                @media (max-width: 768px) {
-                    font-size: 16px;
+                @include lg {
+                    font-size: 19px;
+                }
+
+                @include sm {
+                    font-size: 17px;
                 }
             }
 
             .boxes {
                 display: flex;
-                justify-content: space-between;
-                gap: 20px;
+                justify-content: center;
+                gap: 25px; /* Slightly increased gap */
+                width: 100%;
+                flex-wrap: wrap; /* Added for better responsiveness */
+                margin-top: 20px; /* Added top margin for separation */
 
-                @media (max-width: 640px) {
+                @include sm {
                     display: none;
                 }
 
                 .box {
-                    padding: 25px;
-                    border-radius: 16px;
-                    background: rgba(255, 255, 255, 0.85);
-                    backdrop-filter: blur(15px);
-                    border: 1px solid rgba(255, 255, 255, 0.9);
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
-                                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
-                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                    transform-style: preserve-3d;
-                    perspective: 1000px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px; /* Slightly increased gap inside box */
+                    background-color: #fff;
+                    border-radius: 12px; /* Slightly more rounded corners */
+                    padding: 25px 20px; /* Adjusted padding */
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    flex: 1;
+                    min-width: 200px; /* Ensures a minimum width for the boxes */
+                    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
 
                     &:hover {
-                        transform: translateY(-10px) rotateX(5deg);
-                        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
-                                    inset 0 0 0 2px rgba(255, 255, 255, 0.95);
-                        background: rgba(255, 255, 255, 0.95);
+                        transform: translateY(-5px); /* Lift effect on hover */
+                        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+                    }
+
+                    &:nth-child(1) {
+                        background: linear-gradient(135deg, #e0f2f7, #c1e4ee); /* Light blue/purple gradient */
+                    }
+
+                    &:nth-child(2) {
+                        background: linear-gradient(135deg, #e6f9ed, #d2f1da); /* Light green gradient */
+                    }
+
+                    &:nth-child(3) {
+                        background: linear-gradient(135deg, #f7e0f2, #eed2e6); /* Light pink/purple gradient */
                     }
 
                     h1 {
-                        font-size: 36px;
-                        color: #1e40af;
-                        margin-bottom: 5px;
-                        font-weight: bold;
-                        text-shadow: 0 2px 5px rgba(30, 64, 175, 0.2);
-
-                        @media (max-width: 1024px) {
-                            font-size: 32px;
-                        }
+                        font-size: 40px; /* Slightly larger number */
+                        color: #1a365d; /* Dark blue color from title gradient start */
+                        font-weight: 700; /* Bolder */
                     }
 
                     h2 {
-                        font-size: 20px;
-                        font-weight: 300;
-                        color: #374151;
-
-                        @media (max-width: 1024px) {
-                            font-size: 18px;
-                        }
+                        font-size: 19px; /* Slightly larger text */
+                        font-weight: 500;
+                        color: #555; /* Slightly darker grey */
                     }
                 }
             }
@@ -263,31 +294,103 @@
 
     .imgContainer {
         flex: 2;
-        background-color: transparent;
-        position: relative;
         display: flex;
         align-items: center;
-        z-index: 1;
+        justify-content: center;
+        position: relative;
+        width: 100%; /* Ensure imgContainer takes full width of its parent */
+        min-height: 400px; /* Ensure a minimum height for the image container */
 
-        @media (max-width: 768px) {
-            display: none;
+        @include md {
+            flex: auto; /* Allow imgContainer to take natural height when stacked */
+            height: 350px; /* Slightly increased height for tablets */
+            margin: 40px auto; /* Add more vertical margin for separation */
+            width: 100%; /* Ensure it takes full width of parent when stacked */
         }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.5s ease;
+        @include sm {
+            height: 250px; /* Adjusted height for smaller screens */
+            margin: 30px auto; /* Adjusted margin for smaller screens */
+        }
 
-            &:hover {
-                transform: perspective(1000px) rotateY(0deg);
+        .circle {
+            width: 150px; /* Larger circle */
+            height: 150px;
+            background: linear-gradient(135deg, #4A90E2 0%, #2563EB 100%); /* Gradient background for circle */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+            animation: pulse 2.5s infinite alternate ease-in-out; /* Slower pulse */
+
+            i {
+                font-size: 60px; /* Larger icon */
+                color: #fff;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Text shadow for icon */
+            }
+        }
+
+        .shape {
+            position: absolute;
+            background-color: transparent; /* Changed to transparent, use specific background for each shape */
+            border-radius: 25px; /* Softer edges for shapes */
+            opacity: 0.8; /* Slightly less opaque */
+            filter: blur(1px); /* Add a subtle blur to shapes */
+            animation: float-around 25s ease-in-out infinite alternate; /* Slower float */
+            transform-origin: center center; /* Ensure rotation from center */
+
+            @include md {
+                transform: scale(0.8); /* Slightly larger scale on tablets */
             }
 
-            @media (max-width: 1024px) {
-                width: 105%;
+            @include sm {
+                display: none; /* Hide shapes on small screens */
             }
+        }
+
+        .shape1 {
+            width: 200px; /* Larger */
+            height: 140px; /* Larger */
+            background: linear-gradient(45deg, #6A4FEA, #4A90E2); /* Gradient */
+            top: 10%; /* Adjusted position */
+            right: 10%; /* Adjusted position */
+            left: auto;
+            animation-duration: 20s;
+            transform: rotate(30deg); /* More rotation */
+            border-radius: 30px; /* More rounded */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow */
+        }
+
+        .shape2 {
+            width: 170px; /* Larger */
+            height: 120px; /* Larger */
+            background: linear-gradient(135deg, #3CD070, #6A4FEA); /* Gradient */
+            top: 35%; /* Adjusted position */
+            left: 8%; /* Adjusted position */
+            animation-duration: 24s;
+            transform: rotate(-20deg); /* More rotation */
+            border-radius: 35px; /* More rounded */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow */
+        }
+
+        .shape3 {
+            width: 130px; /* Larger */
+            height: 130px; /* Larger */
+            background: linear-gradient(45deg, #FFC107, #FF9800); /* Gradient */
+            top: 65%; /* Adjusted position */
+            right: 15%; /* Adjusted position */
+            left: auto;
+            animation-duration: 28s;
+            border-radius: 50%; /* Keep it a circle */
+            transform: rotate(25deg); /* More rotation */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow */
+        }
+
+        .shape4 {
+            display: none; /* Keep hidden */
         }
     }
 }
@@ -298,13 +401,13 @@
         transform: translateY(0) translateX(0) scale(1);
     }
     25% {
-        transform: translateY(-40px) translateX(20px) scale(1.05);
+        transform: translateY(-50px) translateX(30px) scale(1.08); /* More movement */
     }
     50% {
-        transform: translateY(-20px) translateX(-20px) scale(0.95);
+        transform: translateY(-30px) translateX(-30px) scale(0.92); /* More movement */
     }
     75% {
-        transform: translateY(-60px) translateX(10px) scale(1.02);
+        transform: translateY(-70px) translateX(20px) scale(1.05); /* More movement */
     }
 }
 
@@ -323,5 +426,31 @@
     }
     100% {
         background-position: 100% 50%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+    100% {
+        transform: scale(1.07); /* More pronounced pulse */
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+    }
+}
+
+@keyframes float-around {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-20px, 30px) rotate(10deg); /* Increased movement and rotation */
+    }
+    50% {
+        transform: translate(25px, -20px) rotate(-15deg); /* Increased movement and rotation */
+    }
+    75% {
+        transform: translate(-15px, -25px) rotate(20deg); /* Increased movement and rotation */
     }
 }

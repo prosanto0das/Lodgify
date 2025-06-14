@@ -23,9 +23,9 @@ function Navbar() {
                    <img src="/logo.png" alt="" />
                    <span>Lodgify</span>
                 </Link>
-                <Link to="/">Home</Link>
-                <Link to="/agents">Contacts</Link>
-                <Link to="/list">Properties</Link>
+                <Link to="/"><i className="fa-solid fa-house"></i>Home</Link>
+                <Link to="/agents"><i className="fa-solid fa-users"></i>Contacts</Link>
+                <Link to="/list"><i className="fa-solid fa-building"></i>Properties</Link>
             </div>
 
             <div className="right">
@@ -42,9 +42,9 @@ function Navbar() {
                     </div>
                 ) : (
                     <>
-                        <Link to="/login">Sign in</Link>
-                        <Link to="/register" className="register">
-                            Sign up
+                        <Link to="/login" className="signInButton"><i className="fa-solid fa-arrow-right-to-bracket"></i>Sign in</Link>
+                        <Link to="/register" className="signUpButton">
+                            <i className="fa-solid fa-user-plus"></i>Sign up
                         </Link>
                     </>
                 )}

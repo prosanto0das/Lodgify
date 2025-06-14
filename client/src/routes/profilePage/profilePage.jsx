@@ -33,19 +33,29 @@ function ProfilePage() {
             </Link>
           </div>
           <div className="info">
-            <span>
-              Avatar:
-              <img src={currentUser.avatar || "noavatar.jpg"} alt="" />
-            </span>
-            <span>
-              Username: <b>{currentUser.username}</b>
-            </span>
-            <span>
-              E-mail: <b>{currentUser.email}</b>
-            </span>
-            <button onClick={handleLogout}>Logout</button>
+            <div className="avatar-section">
+              <img src={currentUser.avatar || "noavatar.jpg"} alt="Profile" />
+              <div className="avatar-info">
+                <h3>{currentUser.username}</h3>
+                <p>Member since {new Date(currentUser.createdAt).toLocaleDateString()}</p>
+              </div>
+            </div>
+            <div className="info-grid">
+              <div className="info-item">
+                <div className="label">Username</div>
+                <div className="value">{currentUser.username}</div>
+              </div>
+              <div className="info-item">
+                <div className="label">Email</div>
+                <div className="value">{currentUser.email}</div>
+              </div>
+            </div>
+            <button onClick={handleLogout}>
+              <i className="fas fa-sign-out-alt"></i>
+              Logout
+            </button>
           </div>
-         
+          
           <div className="title">
             <h1>Saved List</h1>
           </div>
