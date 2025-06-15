@@ -45,11 +45,15 @@ People worldwide face the same lodging challenges:
 
 ## Key Features
 
-| Category              | Highlights                                                                         |
-| --------------------- | ---------------------------------------------------------------------------------- |
-| **Smart Search**      | Map & proximity filters<br/>Custom search presets<br/>Real-time availability       |
-| **Verified Listings** | Host ID checks<br/>High-res photos<br/>Amenity details<br/>Safety & upkeep ratings |
-| **Clear Costs**       | Upfront nightly rates<br/>Service fees breakdown<br/>Utility estimates             |
+| Category                    | Highlights                                                                                                                   |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Smart Search**            | Map & proximity filters<br/>Custom search presets<br/>Real-time availability                                                 |
+| **Verified Listings**       | Host ID checks<br/>High-res photos<br/>Amenity details<br/>Safety & upkeep ratings                                           |
+| **Clear Costs**             | Upfront nightly rates<br/>Service fees breakdown<br/>Utility estimates                                                       |
+| **User Account Management** | User Registration<br/>Secure Login & Logout<br/>Update & Manage User Profiles                                                |
+| **Property Listing**        | Create, Read, Update & Delete Listings<br/>View All Available Properties<br/>View Detailed Information for a Single Property |
+| **User Dashboard**          | Save Favorite Property Listings<br/>View All Listings Created by a User<br/>Receive Notifications                            |
+
 
 ---
 
