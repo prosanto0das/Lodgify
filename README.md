@@ -75,7 +75,7 @@ Project structure: `/api` (server) and `/client` (React app).
 * MongoDB (local or Atlas)
 * cors
 * jsonwebtoken
-* prisma
+* prisma (ORM Tool)
 
 ### Installation
 
